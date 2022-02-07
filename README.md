@@ -1,2 +1,2 @@
 # Java-OOP
-Here are all task, solution and projects form Java-OOP course
+Here are all tasks (with one or more solutions) and projects from Java-OOP course.
