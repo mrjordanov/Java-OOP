@@ -1,4 +1,4 @@
-package jediGalaxy;
+package jediGalaxyV2;
 
 public class Galaxy {
     private Field field;

@@ -1,4 +1,4 @@
-package jediGalaxy;
+package jediGalaxyV2;
 
 public class Field {
     private int[][] matrix;

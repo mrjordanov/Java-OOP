@@ -1,8 +1,5 @@
 package jediGalaxyV2;
 
-import jediGalaxy.Field;
-import jediGalaxy.Galaxy;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
