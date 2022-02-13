@@ -36,7 +36,7 @@ public class Main {
                         System.out.println(tomcat);
                         break;
                 }
-            } catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
             animalType = scanner.nextLine();
