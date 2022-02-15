@@ -33,7 +33,7 @@ public class Citizen implements Person, Identifiable, Buyer {
 
     @Override
     public void buyFood() {
-       food = food + 10;
+       food = 10;
     }
 
     @Override

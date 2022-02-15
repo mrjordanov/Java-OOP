@@ -16,7 +16,6 @@ public class Main {
 
             Buyer buyer = arg.length == 4 ? new Citizen(arg[0], Integer.parseInt(arg[1]), arg[2], arg[3])
                     : new Rebel(arg[0], Integer.parseInt(arg[1]), arg[2]);
-            buyer.buyFood();
             buyerInfo.put(arg[0], buyer);
         }
 
@@ -27,7 +26,9 @@ public class Main {
         while (!nameToCheck.equals("End")) {
 
             if (!buyerInfo.isEmpty() && buyerInfo.containsKey(nameToCheck)) {
-                totalFoodPurchased += buyerInfo.get(nameToCheck).getFood();
+                Buyer buyer= buyerInfo.get(nameToCheck);
+                buyer.buyFood();
+                totalFoodPurchased += buyer.getFood();
             }
             nameToCheck = scanner.nextLine();
         }

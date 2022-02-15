@@ -27,7 +27,7 @@ public class Rebel implements Buyer {
 
     @Override
     public void buyFood() {
-        food = food + 5;
+        food =  5;
     }
 
     @Override
