@@ -1,6 +1,6 @@
-package person;
+package food;
 
-public interface Person  {
+public interface Person {
 
     String getName();
 

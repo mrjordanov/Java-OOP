@@ -1,11 +1,12 @@
-package person;
+package food;
 
-public class Citizen implements Person, Identifiable, Birthable {
+public class Citizen implements Person, Identifiable, Buyer {
 
     private String name;
     private int age;
     private String id;
     private String birthDate;
+    private int food = 0;
 
     public Citizen(String name, int age, String id, String birthDate) {
         this.name = name;
@@ -24,15 +25,19 @@ public class Citizen implements Person, Identifiable, Birthable {
         return age;
     }
 
-    @Override
-    public String getBirthDate() {
-        return birthDate;
-    }
 
     @Override
     public String getId() {
         return id;
     }
 
+    @Override
+    public void buyFood() {
+       food = food + 10;
+    }
 
+    @Override
+    public int getFood() {
+        return food;
+    }
 }
