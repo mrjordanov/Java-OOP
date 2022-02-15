@@ -26,14 +26,18 @@ public class Main {
         while (!nameToCheck.equals("End")) {
 
             if (!buyerInfo.isEmpty() && buyerInfo.containsKey(nameToCheck)) {
-                Buyer buyer= buyerInfo.get(nameToCheck);
+                Buyer buyer = buyerInfo.get(nameToCheck);
                 buyer.buyFood();
                 totalFoodPurchased += buyer.getFood();
             }
             nameToCheck = scanner.nextLine();
         }
 
-        System.out.println(totalFoodPurchased);
+        if (buyerInfo.isEmpty()) {
+            System.out.println();
+        } else {
+            System.out.println(totalFoodPurchased);
+        }
 
     }
 }
