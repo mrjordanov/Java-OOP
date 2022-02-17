@@ -1,5 +1,10 @@
 package military;
 
-public enum SpecialisedSoldierImpl{
-    Airforces,Marines;
+public enum SpecialisedSoldierImpl {
+    Airforces("Airforces"), Marines("Marines");
+
+    SpecialisedSoldierImpl(String corp) {
+    }
+
+
 }

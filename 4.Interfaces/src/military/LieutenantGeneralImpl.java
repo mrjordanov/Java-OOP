@@ -25,8 +25,16 @@ public class LieutenantGeneralImpl extends PrivateImpl {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         setOfPrivatesId.values().stream().sorted((s1, s2) -> Integer.compare(s2.getId(), s1.getId()))
-                .forEach(s -> sb.append(s.toString()).append("\n"));
+                .forEach(s -> sb.append(s).append("\n"));
+        if(sb.length()==0){
+            return super.toString() + "\nPrivates:";
+        }else {
+            return super.toString() + "\nPrivates:\n" + sb.toString().trim();
+        }
+    }
 
-        return super.toString() + "\nPrivates:\n" + sb.toString().trim();
+    @Override
+    public String getInformation(){
+        return toString();
     }
 }

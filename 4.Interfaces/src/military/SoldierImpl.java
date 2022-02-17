@@ -1,6 +1,6 @@
 package military;
 
-public abstract class SoldierImpl  {
+public abstract class SoldierImpl implements Soldier {
     private int id;
     private String firstName;
     private String lastName;
@@ -37,6 +37,6 @@ public abstract class SoldierImpl  {
 
     @Override
     public String toString() {
-        return "Name: " + firstName + " " + lastName + " Id: " + id + " Salary: ";
+        return "Name: " + firstName + " " + lastName + " Id: " + id;
     }
 }

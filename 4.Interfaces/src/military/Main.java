@@ -10,7 +10,6 @@ public class Main {
 
 
         Map<Integer, PrivateImpl> privatesMap = new LinkedHashMap<>();
-        List<Soldier> soldierList = new LinkedList<>();
 
         while (!line.equals("End")) {
             String[] arg = line.split("\\s+");
@@ -20,21 +19,34 @@ public class Main {
             String lastName = arg[3];
             double salary = Double.parseDouble(arg[4]);
             if (typeOfSoldier.equals("Private")) {
-                PrivateImpl soldier = new PrivateImpl(id, firstName, lastName, salary);
-                privatesMap.put(id, soldier);
-                soldierList.add(soldier);
+                Soldier soldier = new PrivateImpl(id, firstName, lastName, salary);
+                privatesMap.put(id, new PrivateImpl(id, firstName, lastName, salary));
                 System.out.println(soldier.getInformation());
             }
             if (typeOfSoldier.equals("LieutenantGeneral")) {
                 LieutenantGeneralImpl lieutenantGeneral = new LieutenantGeneralImpl(id, firstName, lastName, salary);
-                soldierList.add(lieutenantGeneral);
                 for (int i = 5; i < arg.length; i++) {
                     int idNum = Integer.parseInt(arg[i]);
                     PrivateImpl soldier = privatesMap.get(idNum);
                     lieutenantGeneral.addPrivate(soldier);
                 }
-                System.out.println(lieutenantGeneral.getInformation());
+                System.out.println(((Soldier) lieutenantGeneral).getInformation());
             }
+            if (typeOfSoldier.equals("Spy")) {
+                String codeNumber = arg[4];
+                Soldier spy = new Spy(id, firstName, lastName, codeNumber);
+                System.out.println(spy.getInformation());
+            }
+            if (typeOfSoldier.equals("Engineer")) {
+                String corp = arg[5];
+                SpecialisedSoldierImpl rank = SpecialisedSoldierImpl.valueOf(String.valueOf(corp));
+                Engineer engineer = new Engineer(id, firstName, lastName, salary, rank.name());
+                for (int i = 6; i < arg.length - 1; i = i + 2) {
+                    engineer.getRepairs().put(arg[i], Integer.parseInt(arg[i + 1]));
+                }
+                System.out.println(((Soldier) engineer).getInformation());
+            }
+
             line = scanner.nextLine();
         }
 

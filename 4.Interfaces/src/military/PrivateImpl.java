@@ -1,6 +1,6 @@
 package military;
 
-public class PrivateImpl extends SoldierImpl implements Soldier {
+public class PrivateImpl extends SoldierImpl {
 
     private double salary;
 
@@ -16,7 +16,7 @@ public class PrivateImpl extends SoldierImpl implements Soldier {
 
     @Override
     public String toString() {
-        return super.toString() + salary;
+        return super.toString() + " Salary: " + salary;
     }
 
     @Override
