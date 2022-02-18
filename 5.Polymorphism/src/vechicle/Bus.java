@@ -7,18 +7,22 @@ public class Bus extends Vehicle {
 
     public Bus(double quantity, double consumptionPerLiter, int capacity) {
         super(quantity, consumptionPerLiter, capacity);
-        isEmpty=false;
+        this.isEmpty = true;
     }
 
-    @Override
-    public void setConsumptionPerLiter(double consumptionPerLiter) {
-        if (!this.isEmpty){
-            super.setConsumptionPerLiter(consumptionPerLiter + SUMMER_FUEL_REDUCE_PARAM);
+    public void setEmpty(boolean state) {
+        if (this.isEmpty == state) {
+            return;
         }
-    }
 
-    public void setEmpty(boolean empty) {
-        isEmpty = empty;
+        if (isEmpty && !state) {
+            super.setConsumptionPerLiter(getConsumptionPerLiter() + SUMMER_FUEL_REDUCE_PARAM);
+        }
+        if (!isEmpty && state) {
+            super.setConsumptionPerLiter(getConsumptionPerLiter() - SUMMER_FUEL_REDUCE_PARAM);
+        }
+
+        this.isEmpty = state;
     }
 }
 

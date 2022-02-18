@@ -25,17 +25,17 @@ public class Main {
         for (int i = 0; i < n; i++) {
             String[] parts = scanner.nextLine().split("\\s+");
             String vehicleType = parts[1];
-            Travel vehicle = vehicles.get(vehicleType);
+            Travel vehicle= vehicles.get(vehicleType);
             if (parts[0].equals("Drive")) {
                 double distance = Double.parseDouble(parts[2]);
-                if (vehicle instanceof Bus) {
+                if(vehicle instanceof Bus){
                     ((Bus) vehicle).setEmpty(false);
                 }
                 System.out.println(vehicle.drive(distance));
             }
             if (parts[0].equals("DriveEmpty")) {
                 double distance = Double.parseDouble(parts[2]);
-                if (vehicle instanceof Bus) {
+                if(vehicle instanceof Bus){
                     ((Bus) vehicle).setEmpty(true);
                 }
                 System.out.println(vehicle.drive(distance));
@@ -43,9 +43,9 @@ public class Main {
 
             if (parts[0].equals("Refuel")) {
                 double refuel = Double.parseDouble(parts[2]);
-                try {
+                try{
                     vehicles.get(vehicleType).refuel(refuel);
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
                 }
             }
