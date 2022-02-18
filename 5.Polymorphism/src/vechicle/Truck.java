@@ -8,8 +8,8 @@ public class Truck extends Vehicle {
     private static final double REFILL_PERCENTAGE = 0.95;
 
 
-    protected Truck(double quantity, double consumptionPerLiter) {
-        super(quantity, consumptionPerLiter);
+    public Truck(double quantity, double consumptionPerLiter, int capacity) {
+        super(quantity, consumptionPerLiter, capacity);
     }
 
     @Override

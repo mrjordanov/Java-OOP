@@ -6,8 +6,8 @@ public class Car extends Vehicle {
 
     private static final double SUMMER_FUEL_REDUCE_PARAM = 0.9;
 
-    protected Car(double quantity, double consumptionPerLiter) {
-        super(quantity, consumptionPerLiter);
+    public Car(double quantity, double consumptionPerLiter, int capacity) {
+        super(quantity, consumptionPerLiter, capacity);
     }
 
     @Override
