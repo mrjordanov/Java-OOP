@@ -1,6 +1,5 @@
 package vegetagles;
 
-import java.text.DecimalFormat;
 
 public abstract class Animal {
 
@@ -16,7 +15,7 @@ public abstract class Animal {
         this.foodEaten = 0;
     }
 
-    abstract void makeSound();
+   public abstract void makeSound();
 
     public void eatFood(Food food) {
         this.foodEaten += food.getQuantity();
@@ -37,5 +36,6 @@ public abstract class Animal {
     public int getFoodEaten() {
         return foodEaten;
     }
+
 
 }

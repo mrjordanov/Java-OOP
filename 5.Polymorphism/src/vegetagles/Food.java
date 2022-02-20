@@ -1,9 +1,9 @@
 package vegetagles;
 
-public abstract class Food {
+public abstract   class Food {
     private  int quantity;
 
-    protected Food(int quantity) {
+    public Food(int quantity) {
         this.quantity = quantity;
     }
 

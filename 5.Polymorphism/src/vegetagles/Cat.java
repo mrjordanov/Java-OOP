@@ -2,27 +2,25 @@ package vegetagles;
 
 import java.text.DecimalFormat;
 
-public class Cat extends Felime{
+public class Cat extends Felime {
 
     private String breed;
 
     public Cat(String animalName, String animalType, double animalWeight, String livingRegion, String breed) {
         super(animalName, animalType, animalWeight, livingRegion);
-        this.breed=breed;
+        this.breed = breed;
     }
 
-
-
     @Override
-    void makeSound() {
+    public void makeSound() {
         System.out.println("Meowwww");
     }
 
     @Override
     public String toString() {
-        DecimalFormat formatter=new DecimalFormat("##.##");
-        return String.format("%s[%s, %s, %s, %s, %d]",getAnimalType(),getAnimalName(),breed,
-                formatter.format(getAnimalWeight()),getLivingRegion(),getFoodEaten());
+        DecimalFormat formatter = new DecimalFormat("##.##");
+        return String.format("%s[%s, %s, %s, %s, %d]", getAnimalType(), getAnimalName(), breed,
+                formatter.format(getAnimalWeight()), getLivingRegion(), getFoodEaten());
     }
 
 }

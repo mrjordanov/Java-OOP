@@ -8,7 +8,7 @@ public class Tiger extends Felime {
     }
 
     @Override
-    void makeSound() {
+   public void makeSound() {
         System.out.println("ROAAR!!!");
     }
 
