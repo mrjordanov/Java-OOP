@@ -26,14 +26,18 @@ public class Engineer extends SoldierImpl {
         return repairs;
     }
 
+    public void setCorp(String corp) {
+        this.corp = corp;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        getRepairs().forEach((key, value) -> sb.append("Part Name: ").append(key).append(" Hours Worked: ").append(value).append("\n"));
+        getRepairs().forEach((key, value) -> sb.append("  Part Name: ").append(key).append(" Hours Worked: ").append(value).append("\n"));
         if (sb.isEmpty()) {
             return super.toString() + " Salary: " + salary + "\nCorps: " + corp + "\nRepairs:";
         } else {
-            return super.toString() + " Salary: " + salary + "\nCorps: " + corp + "\nRepairs:\n" + sb.toString().trim();
+            return super.toString() + " Salary: " + salary + "\nCorps: " + corp + "\nRepairs:\n  " + sb.toString().trim();
         }
     }
 
