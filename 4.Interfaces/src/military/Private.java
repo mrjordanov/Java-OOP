@@ -1,10 +1,10 @@
 package military;
 
-public class PrivateImpl extends SoldierImpl {
+public class Private extends SoldierImpl {
 
     private double salary;
 
-    public PrivateImpl(int id, String firstName, String lastName, double salary) {
+    public Private(int id, String firstName, String lastName, double salary) {
         super(id, firstName, lastName);
         this.salary = salary;
     }
@@ -28,6 +28,7 @@ public class PrivateImpl extends SoldierImpl {
     public int getId() {
         return super.getId();
     }
+
 
 
 }

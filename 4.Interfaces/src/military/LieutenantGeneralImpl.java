@@ -1,35 +1,35 @@
 package military;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
-public class LieutenantGeneralImpl extends PrivateImpl {
+import java.util.LinkedList;
+import java.util.List;
 
-    private final Map<Integer, PrivateImpl> setOfPrivatesId;
 
+public class LieutenantGeneralImpl extends SoldierImpl {
+
+    private final List<Private> listOfPrivates;
+    private double salary;
     public LieutenantGeneralImpl(int id, String firstName, String lastName, double salary) {
-        super(id, firstName, lastName, salary);
-        this.setOfPrivatesId = new LinkedHashMap<>();
+        super(id, firstName, lastName);
+        this.salary=salary;
+        this.listOfPrivates = new LinkedList<>();
     }
 
-  /*  public Map<Integer, PrivateImpl> getSetOfPrivates() {
-        return setOfPrivatesId;
-    }*/
 
-    public void addPrivate(PrivateImpl soldier) {
-        int id = soldier.getId();
-        this.setOfPrivatesId.put(id, soldier);
+    public void addPrivate(Private soldier) {
+        this.listOfPrivates.add(soldier);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        setOfPrivatesId.values().stream().sorted((s1, s2) -> Integer.compare(s2.getId(), s1.getId()))
-                .forEach(s -> sb.append(s).append("\n"));
+       listOfPrivates.forEach(p->sb.append("  ").append(p.toString()).append("\n"));
+       // listOfPrivates.values().stream().sorted((s1, s2) -> Integer.compare(s2.getId(), s1.getId()))
+        //        .forEach(s -> sb.append(s).append("\n"));
         if(sb.length()==0){
             return super.toString() + "\nPrivates:";
         }else {
-            return super.toString() + "\nPrivates:\n" + sb.toString().trim();
+            return super.toString() + "\nPrivates:\n  " + sb.toString().trim();
         }
     }
 

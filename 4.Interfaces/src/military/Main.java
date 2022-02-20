@@ -9,8 +9,8 @@ public class Main {
         String line = scanner.nextLine();
 
 
-        Map<Integer, PrivateImpl> privatesMap = new LinkedHashMap<>();
-
+        //  Map<Integer, Private> privatesMap = new LinkedHashMap<>();
+        List<Private> privateList = new ArrayList<>();
         List<Soldier> soldierList = new ArrayList<>();
 
         while (!line.equals("End")) {
@@ -21,25 +21,30 @@ public class Main {
             String lastName = arg[3];
             double salary = Double.parseDouble(arg[4]);
             if (typeOfSoldier.equals("Private")) {
-                Soldier soldier = new PrivateImpl(id, firstName, lastName, salary);
-                privatesMap.put(id, new PrivateImpl(id, firstName, lastName, salary));
+                Soldier soldier = new Private(id, firstName, lastName, salary);
+                Private priv = new Private(id, firstName, lastName, salary);
+                // privatesMap.put(id, new Private(id, firstName, lastName, salary));
+                privateList.add(priv);
                 soldierList.add(soldier);
-               // System.out.println(soldier.getInformation());
+                // System.out.println(soldier.getInformation());
             }
             if (typeOfSoldier.equals("LieutenantGeneral")) {
                 LieutenantGeneralImpl lieutenantGeneral = new LieutenantGeneralImpl(id, firstName, lastName, salary);
                 for (int i = 5; i < arg.length; i++) {
                     int idNum = Integer.parseInt(arg[i]);
-                    PrivateImpl soldier = privatesMap.get(idNum);
-                    lieutenantGeneral.addPrivate(soldier);
+                    for (Private aPrivate : privateList) {
+                        if (aPrivate.getId() == idNum) {
+                            lieutenantGeneral.addPrivate(aPrivate);
+                        }
+                    }
                 }
                 soldierList.add(lieutenantGeneral);
-              //  System.out.println(((Soldier) lieutenantGeneral).getInformation());
+                //  System.out.println(((Soldier) lieutenantGeneral).getInformation());
             }
             if (typeOfSoldier.equals("Spy")) {
                 String codeNumber = arg[4];
                 Soldier spy = new Spy(id, firstName, lastName, codeNumber);
-              //  System.out.println(spy.getInformation());
+                //  System.out.println(spy.getInformation());
                 soldierList.add(spy);
             }
             if (typeOfSoldier.equals("Engineer")) {
@@ -50,7 +55,7 @@ public class Main {
                     for (int i = 6; i < arg.length - 1; i = i + 2) {
                         engineer.getRepairs().put(arg[i], Integer.parseInt(arg[i + 1]));
                     }
-                  //  System.out.println(((Soldier) engineer).getInformation());
+                    //  System.out.println(((Soldier) engineer).getInformation());
                     soldierList.add(engineer);
                 } else {
                     continue;
@@ -70,7 +75,7 @@ public class Main {
                             break;
                         }
                     }
-                   // System.out.println(((Soldier) commando).getInformation());
+                    // System.out.println(((Soldier) commando).getInformation());
                     soldierList.add(commando);
                 } else {
                     continue;
