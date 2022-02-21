@@ -1,10 +1,15 @@
 package calculator;
 
-public class InputInterpreter { 
-    private CalculationEngine engine;
 
-    public InputInterpreter(CalculationEngine engine) {
+import java.util.Stack;
+
+public class InputInterpreter {
+    private CalculationEngine engine;
+    private Stack<Integer> memory;
+
+    public InputInterpreter(CalculationEngine engine, Stack<Integer> stack) {
         this.engine = engine;
+        this.memory = stack;
     }
 
     public boolean interpret(String input) {
@@ -18,7 +23,13 @@ public class InputInterpreter {
 
     public Operation getOperation(String operation) {
         if (operation.equals("*")) {
-            return new MultiplicationOperation();
+            return new Multiplication();
+        } else if (operation.equals("/")) {
+            return new Division();
+        } else if (operation.equals("ms")) {
+            return new MemorySafe(this.memory);
+        } else if (operation.equals("mr")) {
+            return new MemoryRecall(this.memory);
         }
 
         return null;
