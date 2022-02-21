@@ -6,7 +6,7 @@ import java.util.List;
 public class Cart {
     private final List<OrderItem> items;
 
-    public String custmerEmail;
+    public String customerEmail;
 
     public Cart() {
         this.items = new ArrayList<>();
@@ -17,12 +17,12 @@ public class Cart {
     }
 
 
-    public String getCustmerEmail() {
-        return this.custmerEmail;
+    public String getCustomerEmail() {
+        return this.customerEmail;
     }
 
-    public void setCustmerEmail(String custmerEmail) {
-        this.custmerEmail = custmerEmail;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     public void add(OrderItem orderItem) {
@@ -34,12 +34,12 @@ public class Cart {
 
         for(var item : this.items)
         {
-            if (item.getSku().startsWith("EACH")) {
+            if (item.getProduct().startsWith("EACH")) {
                 total += item.getQuantity() * 5.0;
-            } else if (item.getSku().startsWith("WEIGHT")) {
+            } else if (item.getProduct().startsWith("WEIGHT")) {
                 // quantity is in grams, price is per kg
                 total += item.getQuantity() * 4.0 / 1000;
-            } else if (item.getSku().startsWith("SPECIAL")) {
+            } else if (item.getProduct().startsWith("SPECIAL")) {
                 // $0.40 each; 3 for $1.00
                 total += item.getQuantity() * 4.0;
                 int setsOfThree = item.getQuantity() / 3;

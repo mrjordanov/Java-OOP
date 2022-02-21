@@ -1,16 +1,16 @@
 package solidLab.p02_OpenClosedPrinciple.p03_ShoppingCart;
 
 public class OrderItem {
-    private String sku;
+    private String product;
 
     private int Quantity;
 
-    public String getSku() {
-        return this.sku;
+    public String getProduct() {
+        return this.product;
     }
 
-    public void setSku(String sku) {
-        this.sku = sku;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public int getQuantity() {
