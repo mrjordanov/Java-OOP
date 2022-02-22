@@ -1,4 +1,4 @@
-package logger.impl;
+package logger.impl.layouts;
 
 import logger.enums.ReportLevel;
 import logger.interfaces.Layout;

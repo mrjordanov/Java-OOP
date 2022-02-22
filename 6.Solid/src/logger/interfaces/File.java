@@ -3,7 +3,9 @@ package logger.interfaces;
 public interface File {
 
     int getSize();
+
     boolean write(String text);
-    void append (String text);
+
+    void append(String text);
 
 }

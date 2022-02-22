@@ -42,4 +42,14 @@ public class MessageLogger implements Logger {
     private void log(String time, String message, ReportLevel reportLevel) {
         Arrays.stream(appenders).forEach(appender -> appender.append(time, message, reportLevel));
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Logger info\n");
+        for (Appender appender : appenders) {
+            sb.append(appender.toString()).append("\n");
+        }
+
+        return sb.toString();
+    }
 }

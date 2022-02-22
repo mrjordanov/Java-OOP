@@ -4,7 +4,6 @@ import logger.interfaces.File;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
@@ -15,7 +14,6 @@ public class LogFile implements File {
     private StringBuilder text;
     private int size;
     private String fileName;
-
 
     public LogFile() {
         this(DEFAULT_FILE_NAME);

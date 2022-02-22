@@ -22,12 +22,17 @@ public class FileAppender extends BaseAppender {
         this.file = file;
     }
 
-
     @Override
     public void append(String time, String message, ReportLevel reportLevel) {
-        String output = this.layout.format(time, message, reportLevel);
-        file.append(output);
+        if (this.canAppend(reportLevel)) {
+            String output = this.layout.format(time, message, reportLevel);
+            increaseMessageCount();
+            file.append(output);
+        }
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + " File size : " + this.file.getSize();
+    }
 }
