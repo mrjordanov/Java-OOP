@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/military.zip!/" />
+      <root url="jar://$PROJECT_DIR$/ferrari.zip!/" />
+      <root url="jar://$PROJECT_DIR$/person2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sayhello.zip!/" />
+      <root url="jar://$PROJECT_DIR$/collection.zip!/" />
+      <root url="jar://$PROJECT_DIR$/food6.zip!/" />
+      <root url="jar://$PROJECT_DIR$/food.zip!/" />
+      <root url="jar://$PROJECT_DIR$/telephon.zip!/" />
+      <root url="jar://$PROJECT_DIR$/person3.zip!/" />
+      <root url="jar://$PROJECT_DIR$/carshop.zip!/" />
+      <root url="jar://$PROJECT_DIR$/person1.zip!/" />
+      <root url="jar://$PROJECT_DIR$/bordercontrol.zip!/" />
+      <root url="jar://$PROJECT_DIR$/food5.zip!/" />
+      <root url="jar://$PROJECT_DIR$/person.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

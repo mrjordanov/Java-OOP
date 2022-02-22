@@ -16,7 +16,7 @@ public class Private extends SoldierImpl {
 
     @Override
     public String toString() {
-        return super.toString() + " Salary: " + salary;
+        return super.toString() + " Salary: " + String.format("%.2f", salary);
     }
 
     @Override
@@ -28,7 +28,6 @@ public class Private extends SoldierImpl {
     public int getId() {
         return super.getId();
     }
-
 
 
 }

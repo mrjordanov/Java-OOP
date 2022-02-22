@@ -27,9 +27,9 @@ public class LieutenantGeneralImpl extends SoldierImpl {
        // listOfPrivates.values().stream().sorted((s1, s2) -> Integer.compare(s2.getId(), s1.getId()))
         //        .forEach(s -> sb.append(s).append("\n"));
         if(sb.length()==0){
-            return super.toString() + "\nPrivates:";
+            return super.toString() + String.format(" Salary: %.2f", salary) + "\nPrivates:";
         }else {
-            return super.toString() + "\nPrivates:\n  " + sb.toString().trim();
+            return super.toString()+ String.format(" Salary: %.2f", salary) + "\nPrivates:\n  " + sb.toString().trim();
         }
     }
 

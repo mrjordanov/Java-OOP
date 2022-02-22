@@ -1,5 +1,6 @@
 package military;
 
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,10 +31,11 @@ public class Commando extends SoldierImpl {
         StringBuilder sb = new StringBuilder();
         this.missions.forEach(m -> sb.append(m.toString()).append("\n"));
 
-        if (sb.isEmpty()) {
-            return super.toString() + " Salary: " + salary + "\nCorps: " + corp + "\nMissions:";
+
+        if (sb.length() == 0) {
+            return super.toString() + " Salary: " + String.format("%.2f", salary) + "\nCorps: " + corp + "\nMissions:";
         } else {
-            return super.toString() + " Salary: " + salary + "\nCorps: " + corp + "\nMissions:\n  " + sb.toString().trim();
+            return super.toString() + " Salary: " + String.format("%.2f", salary) + "\nCorps: " + corp + "\nMissions:\n  " + sb.toString().trim();
         }
     }
 
