@@ -10,7 +10,7 @@ public class Main {
         Class<?>[] interfaces = clazz.getInterfaces();
 
 
-        Class<?> clazz1= Person.class;
+        Class<?> clazz1 = Person.class;
         System.out.println(clazz1.getSuperclass().getSimpleName());
     }
 }

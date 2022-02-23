@@ -2,7 +2,7 @@ package reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class Main {
@@ -10,15 +10,23 @@ public class Main {
 
         Class<Reflection> clazz = Reflection.class;
 
+        Field[] fields = clazz.getDeclaredFields();
+
+        for (Field field : fields) {
+            System.out.println(Modifier.toString(field.getModifiers()));
+        }
 
         System.out.println(clazz.getSimpleName());
         System.out.println(clazz.getSuperclass().getSimpleName());
 
+
         try {
             Arrays.stream(clazz.getInterfaces()).forEach(c -> System.out.println(c.getSimpleName()));
             // Arrays.stream(clazz.getInterfaces()).map(Class::getSimpleName).forEach(System.out::println);
-
             Constructor<Reflection> ctor = clazz.getDeclaredConstructor();
+            Constructor<Reflection> ctorWith3Parameters = clazz.getDeclaredConstructor(String.class, String.class, String.class, int.class);
+            Reflection object = ctorWith3Parameters.newInstance("Hello", "sgfsdg", "ghtrhhy", 5);
+            System.out.println(object);
             /*
             Constructor<Reflection> ctorWithParameters = clazz.getDeclaredConstructor(String.class, String.class, String.class);
 
@@ -43,9 +51,9 @@ public class Main {
             Reflection reflection = ctor.newInstance();
             System.out.println(reflection);
 
-            //   System.out.println(clazz.getDeclaredConstructor().newInstance());
 
-            Field[] declaredFields = clazz.getDeclaredFields();
+
+          Field[] declaredFields = clazz.getDeclaredFields();
 
             Field nickNameStaticField = declaredFields[0];
             nickNameStaticField.setAccessible(true);
@@ -73,11 +81,11 @@ public class Main {
             System.out.println("Zip field with reflection " + value);
 
 
-            Method[] declaredMethods = clazz.getDeclaredMethods();
+          /*  Method[] declaredMethods = clazz.getDeclaredMethods();
             System.out.println(declaredMethods[7].getName());
             Method declaredMethod = declaredMethods[7];
             Object invoke = declaredMethod.invoke(reflection);
-            System.out.println(invoke);
+            System.out.println(invoke);*/
 
         } catch (Exception ex) {
             ex.printStackTrace();
