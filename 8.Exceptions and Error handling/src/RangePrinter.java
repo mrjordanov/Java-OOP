@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class RangePrinter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         try {
             int start = Integer.parseInt(scanner.nextLine());
             int end = Integer.parseInt(scanner.nextLine());
@@ -16,7 +17,7 @@ public class RangePrinter {
 
     }
 
-    private static void printNumber(int start, int end) {
+    private static void printNumber(int start, int end) throws IllegalArgumentException {
 
         if (start > 1 && start < end && end < 100) {
             for (int i = start; i <= end; i++) {
