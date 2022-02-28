@@ -7,8 +7,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-
-
         try {
             String[] arg = scanner.nextLine().split(" ");
             String pizzaName = arg[1];
@@ -34,7 +32,7 @@ public class Main {
                 Topping topping = new Topping(toppingType, weightOfTopping);
                 pizza.addTopping(topping);
 
-                input= scanner.nextLine();
+                input = scanner.nextLine();
             }
 
             System.out.println(pizza);
