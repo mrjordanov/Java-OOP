@@ -25,7 +25,6 @@ public class LogFile implements File {
         this.fileName = fileName;
     }
 
-
     @Override
     public int getSize() {
         return calculateSize();
