@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/footbalTeamGenerator.zip!/" />
+      <root url="jar://$PROJECT_DIR$/salary2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/sortByName.zip!/" />
+      <root url="jar://$PROJECT_DIR$/salary.zip!/" />
+      <root url="jar://$PROJECT_DIR$/shoppingSpree.zip!/" />
+      <root url="jar://$PROJECT_DIR$/AnimalFarm.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Box.zip!/" />
+      <root url="jar://$PROJECT_DIR$/firstAndReverseTeam.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
