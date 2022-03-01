@@ -1,30 +1,35 @@
 package rpg_lab;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class AxeTest {
 
+    private Dummy dummy;
+    private Axe axe;
+    private Axe brokenAxe;
 
-    @Test
-    public void testWeaponLosesDurabilityAfterAttack(){
-        //Arrange
-        Axe axe= new Axe(10,10);
-        Dummy dummy =new Dummy(100,100);
-
-        //Act
-        axe.attack(dummy);
-
-        //Assert
-        //expectations vs reality
-        Assert.assertEquals(9,axe.getDurabilityPoints());
+    @Before
+    public void setUp() {
+        this.axe = new Axe(10, 10);
+        this.brokenAxe = new Axe(10, 0);
+        this.dummy = new Dummy(100, 100);
     }
 
 
-   /* @Test
-    public void myFirstTest(){
-        System.out.println("Hello world! From test");
-    }*/
+    @Test
+    public void testWeaponLosesDurabilityAfterAttack() {
+        axe.attack(dummy);
+        Assert.assertEquals(9, axe.getDurabilityPoints());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testAxeAttackThrowsIfAxeHaveZeroDurability() {
+        brokenAxe.attack(dummy);
+    }
+
+
 }
