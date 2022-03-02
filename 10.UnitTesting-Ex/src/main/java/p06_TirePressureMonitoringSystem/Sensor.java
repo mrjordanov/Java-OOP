@@ -2,7 +2,7 @@ package p06_TirePressureMonitoringSystem;
 
 import java.util.Random;
 
-public class Sensor implements Pressure {
+public class Sensor  {
     // The reading of the pressure value from the sensor is simulated in this implementation.
     // Because the focus of the exercise is on the other class.
 
@@ -10,15 +10,10 @@ public class Sensor implements Pressure {
 
     private static Random randomPressureSampleSimulator = new Random();
 
-    @Override
+
     public double popNextPressurePsiValue() {
         double pressureTelemetryValue = readPressureSample();
         return OFFSET + pressureTelemetryValue;
-    }
-
-    @Override
-    public double readPressure() {
-        return readPressureSample();
     }
 
 
