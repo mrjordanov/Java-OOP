@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 
 public class ListIteratorTest {
 
-
     ListIterator listIterator;
     private static final String[] NAMES = new String[]{"Marin", "Angel", "Pesho", "Kircho"};
 
@@ -65,6 +64,5 @@ public class ListIteratorTest {
             index++;
         }
     }
-
 
 }
