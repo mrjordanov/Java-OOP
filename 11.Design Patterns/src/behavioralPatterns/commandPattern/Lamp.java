@@ -1,4 +1,4 @@
-package commandPattern;
+package behavioralPatterns.commandPattern;
 
 public class Lamp {
 
