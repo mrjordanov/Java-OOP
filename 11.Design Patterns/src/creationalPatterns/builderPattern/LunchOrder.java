@@ -4,6 +4,7 @@ public class LunchOrder {
 
     public static class Builder {
         private LunchOrder order;
+
         private Builder() {
             this.order = new LunchOrder();
         }
