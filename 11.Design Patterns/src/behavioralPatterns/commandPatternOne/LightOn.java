@@ -1,4 +1,4 @@
-package behavioralPatterns.commandPattern;
+package behavioralPatterns.commandPatternOne;
 
 public class LightOn implements Command {
 

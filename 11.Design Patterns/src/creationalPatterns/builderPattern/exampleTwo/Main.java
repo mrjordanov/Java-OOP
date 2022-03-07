@@ -1,4 +1,4 @@
-package creationalPatterns.builderPattern;
+package creationalPatterns.builderPattern.exampleTwo;
 
 public class Main {
     public static void main(String[] args) {

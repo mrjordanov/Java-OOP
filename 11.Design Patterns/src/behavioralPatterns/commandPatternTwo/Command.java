@@ -1,4 +1,4 @@
-package behavioralPatterns.commandPattern;
+package behavioralPatterns.commandPatternTwo;
 
 public interface Command {
 

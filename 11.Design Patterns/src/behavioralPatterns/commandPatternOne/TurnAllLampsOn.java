@@ -1,4 +1,4 @@
-package behavioralPatterns.commandPattern;
+package behavioralPatterns.commandPatternOne;
 
 import java.util.List;
 
