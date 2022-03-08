@@ -1,15 +1,12 @@
 package restaurant.entities.drinks;
 
-public class Fresh extends BaseBeverages {
+public class Fresh extends BaseBeverage {
 
-    private final double FRESH_PRICE = 3.50;
+    private static final double freshPrice = 3.50;
 
-    protected Fresh(String name, int counter, double price, String brand) {
-        super(name, counter, price, brand);
+    public Fresh(String name, int counter, String brand) {
+        super(name, counter, freshPrice, brand);
     }
 
-    @Override
-    public void setPrice(double price) {
-        super.setPrice(FRESH_PRICE);
-    }
+
 }

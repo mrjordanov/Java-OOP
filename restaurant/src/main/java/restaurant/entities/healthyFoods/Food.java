@@ -2,6 +2,9 @@ package restaurant.entities.healthyFoods;
 
 import restaurant.entities.healthyFoods.interfaces.HealthyFood;
 
+import static restaurant.common.ExceptionMessages.*;
+import static restaurant.utils.StringUtils.nullOrEmpty;
+
 public abstract class Food implements HealthyFood {
     private String name;
     private double portion;
@@ -14,33 +17,23 @@ public abstract class Food implements HealthyFood {
         this.setPrice(price);
     }
 
-    public void setName(String name) {
-        if (isNullOrEmpty(name)) {
-            throw new IllegalArgumentException("Name cannot be null or white space!");
-        }
+    private void setName(String name) {
+        nullOrEmpty(name,INVALID_NAME);
         this.name = name;
     }
 
-    public void setPortion(double portion) {
-        if (isValidValue(portion)) {
-            throw new IllegalArgumentException("Portion cannot be less or equal to zero!");
+    private void setPortion(double portion) {
+        if (portion <= 0) {
+            throw new IllegalArgumentException(INVALID_PORTION);
         }
         this.portion = portion;
     }
 
-    public void setPrice(double price) {
-        if (isValidValue(price)) {
-            throw new IllegalArgumentException("Price cannot be less or equal to zero!");
+    private void setPrice(double price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException(INVALID_PRICE);
         }
         this.price = price;
-    }
-
-    private boolean isNullOrEmpty(String str) {
-        return str == null || str.trim().isEmpty();
-    }
-
-    private boolean isValidValue(double value) {
-        return value <= 0;
     }
 
     @Override
@@ -57,6 +50,4 @@ public abstract class Food implements HealthyFood {
     public double getPrice() {
         return price;
     }
-
-
 }

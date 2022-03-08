@@ -52,8 +52,7 @@ public class EngineImpl implements Engine {
 
             case addHealthyFood:
             result = this.controller.addHealthyFood(
-                    data[0], Double.parseDouble(data[1]), data[2]
-            );
+                    data[0], Double.parseDouble(data[1]), data[2]);
             break;
 
             case addBeverage:

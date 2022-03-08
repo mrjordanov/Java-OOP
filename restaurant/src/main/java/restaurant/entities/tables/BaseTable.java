@@ -3,10 +3,14 @@ package restaurant.entities.tables;
 
 import restaurant.entities.drinks.interfaces.Beverages;
 import restaurant.entities.healthyFoods.interfaces.HealthyFood;
+import restaurant.entities.tables.interfaces.Table;
 
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+
+import static restaurant.common.ExceptionMessages.INVALID_NUMBER_OF_PEOPLE;
+import static restaurant.common.ExceptionMessages.INVALID_TABLE_SIZE;
 
 
 public abstract class BaseTable implements Table {
@@ -18,34 +22,36 @@ public abstract class BaseTable implements Table {
     private int numberOfPeople;
     private double pricePerPerson;
     private boolean isReservedTable;
+    private double allPeople;
 
 
     protected BaseTable(int number, int size, double pricePerPerson) {
-        this.number = number;
+        this.setNumber(number);
         this.setSize(size);
-        this.pricePerPerson = pricePerPerson;
-        this.healthyFood = new LinkedList<>();
-        this.beverages = new LinkedList<>();
-        this.isReservedTable = true;
-
+        this.setPricePerPerson(pricePerPerson);
+        this.healthyFood = new ArrayList<>();
+        this.beverages = new ArrayList<>();
     }
 
 
-    public double getAllPeople() {
-        return pricePerPerson * numberOfPeople;
+    private void setNumber(int number) {
+        this.number = number;
+    }
+
+    private void setSize(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(INVALID_TABLE_SIZE);
+        }
+        this.size = size;
+    }
+
+    private void setPricePerPerson(double pricePerPerson) {
+        this.pricePerPerson = pricePerPerson;
     }
 
     @Override
-    public boolean isReservedTable() {
-        return isReservedTable;
-    }
-
-    public int getNumber() {
+    public int getTableNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     @Override
@@ -53,36 +59,33 @@ public abstract class BaseTable implements Table {
         return size;
     }
 
-    public void setSize(int size) {
-        if (size <= 0) {
-            throw new IllegalArgumentException("Size has to be greater than 0!");
-        }
-        this.size = size;
-    }
-
-    public double getPricePerPerson() {
-        return pricePerPerson;
-    }
-
-    public void setPricePerPerson(double pricePerPerson) {
-        this.pricePerPerson = pricePerPerson;
-    }
-
-
-    public int getNumberOfPeople() {
+    @Override
+    public int numberOfPeople() {
         return numberOfPeople;
     }
 
-    public void setNumberOfPeople(int numberOfPeople) {
-        if (numberOfPeople <= 0) {
-            throw new IllegalArgumentException("Cannot place zero or less people!");
-        }
-        this.numberOfPeople = numberOfPeople;
+    @Override
+    public double pricePerPerson() {
+        return pricePerPerson;
+    }
+
+    @Override
+    public boolean isReservedTable() {
+        return isReservedTable;
+    }
+
+    @Override
+    public double allPeople() {
+        return allPeople;
     }
 
     @Override
     public void reserve(int numberOfPeople) {
+        if (numberOfPeople <= 0) {
+            throw new IllegalArgumentException(INVALID_NUMBER_OF_PEOPLE);
+        }
         this.numberOfPeople = numberOfPeople;
+        this.isReservedTable = true;
     }
 
     @Override
@@ -97,11 +100,10 @@ public abstract class BaseTable implements Table {
 
     @Override
     public double bill() {
-        double priceForHealthyOrders = healthyFood.stream().mapToDouble(HealthyFood::getPrice).sum();
-        double priceForBeveragesOrders = beverages.stream().mapToDouble(Beverages::getPrice).sum();
-        return priceForHealthyOrders + priceForBeveragesOrders;
+        double foodBill = healthyFood.stream().mapToDouble(HealthyFood::getPrice).sum();
+        double beverageBill = beverages.stream().mapToDouble(Beverages::getPrice).sum();
+        return foodBill + beverageBill + (numberOfPeople * pricePerPerson);
     }
-
 
     @Override
     public void clear() {
@@ -109,16 +111,11 @@ public abstract class BaseTable implements Table {
         this.beverages.clear();
         this.isReservedTable = false;
         this.numberOfPeople = 0;
-        this.pricePerPerson = 0;
     }
 
 
     @Override
     public String tableInformation() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Table - ").append(number).append("\n");
-        sb.append("Size - ").append(size).append("\n");
-
-        return sb.toString();
+        return String.format("Table - %d%n" + "Size - %d%n" + "Type - %s%n" + "All price - %.2f", number, size, this.getClass().getSimpleName(), pricePerPerson);
     }
 }

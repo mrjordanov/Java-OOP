@@ -2,41 +2,9 @@ package restaurant.entities.tables;
 
 public class InGarden extends BaseTable {
 
-    private final double PRICE_PER_PERSON = 4.50;
+    private static final double pricePerPerson = 4.50;
 
-    protected InGarden(int number, int size, double pricePerPerson) {
+    public InGarden(int number, int size) {
         super(number, size, pricePerPerson);
-    }
-
-
-    @Override
-    public void setPricePerPerson(double pricePerPerson) {
-        super.setPricePerPerson(PRICE_PER_PERSON);
-    }
-
-
-    @Override
-    public int getTableNumber() {
-        return getNumber();
-    }
-
-    @Override
-    public int numberOfPeople() {
-        return getNumberOfPeople();
-    }
-
-    @Override
-    public double pricePerPerson() {
-        return getPricePerPerson();
-    }
-
-    @Override
-    public boolean isReservedTable() {
-        return super.isReservedTable();
-    }
-
-    @Override
-    public double allPeople() {
-        return ;
     }
 }

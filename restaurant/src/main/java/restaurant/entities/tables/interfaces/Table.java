@@ -1,4 +1,4 @@
-package restaurant.entities.tables;
+package restaurant.entities.tables.interfaces;
 
 import restaurant.entities.healthyFoods.interfaces.HealthyFood;
 import restaurant.entities.drinks.interfaces.Beverages;
