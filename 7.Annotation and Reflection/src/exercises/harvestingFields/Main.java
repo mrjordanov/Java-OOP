@@ -35,7 +35,7 @@ public class Main {
     private static void printFields(String command, Class<?> clazz) {
         Field[] declaredFields = clazz.getDeclaredFields();
         if (!command.equals("all")) {
-            Arrays.stream(declaredFields).filter(f -> Modifier.toString(f.getModifiers()).equals(command))
+            Arrays.stream(declaredFields).filter(f ->Modifier.toString((f.getModifiers())).equals(command))
                     .forEach(f -> System.out.printf
                             ("%s %s %s", Modifier.toString(f.getModifiers()), f.getType().getSimpleName(), f.getName()).println());
         } else {

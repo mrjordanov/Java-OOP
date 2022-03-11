@@ -5,7 +5,6 @@ public class Dog extends Person implements Mammal {
         public static void main(String[] args) {
 
             Class<Dog> clazz = Dog.class;
-
             System.out.println(clazz.getSuperclass().getSimpleName());
             Class<?>[] interfaces = clazz.getInterfaces();
 
