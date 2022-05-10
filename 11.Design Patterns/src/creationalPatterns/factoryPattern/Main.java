@@ -8,6 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String pizzaType = scanner.nextLine();
+
         PizzaFactory pizzaFactory = new PizzaFactory();
         Pizza pizza = pizzaFactory.createPizza(pizzaType);
         pizza.bake();

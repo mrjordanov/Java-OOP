@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -8,6 +10,13 @@ public class Main {
         sender.start();
         receiver.start();
 
-        System.out.printf("%s","End");
+        System.out.printf("%s", "End");
+
+
+        List<Data> dataList = new LinkedList<>();
+        List<String> stringList= new ArrayList<>();
+        dataList.add(data);
+
+
     }
 }

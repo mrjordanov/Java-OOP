@@ -4,7 +4,7 @@ public class Data {
 
     // True if receiver should wait
     // False if sender should wait
-    private boolean transfer = true;
+    private boolean transfer = false;
 
     public synchronized String receive() {
         while (transfer) {

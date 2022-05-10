@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String arg = scanner.nextLine();
-
+      
         Map<String, Team> teamMap = new LinkedHashMap<>();
 
         while (!arg.equals("END")) {

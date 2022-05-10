@@ -2,8 +2,8 @@ package behavioralPatterns.stategyPattern;
 
 public class Main {
     public static void main(String[] args) {
-
-        Bird seagull = new Bird(new CantFly());
+        FlyStrategy flyStrategy= new CantFly();
+        Bird seagull = new Bird(flyStrategy);
         seagull.fly();
 
         seagull.setFlyStrategy(new FlyHigh());

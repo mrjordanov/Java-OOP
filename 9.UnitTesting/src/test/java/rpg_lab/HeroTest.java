@@ -98,7 +98,7 @@ public class HeroTest {
     public void testUponTargetAttackWhileTargetIsStillAliveHeroGetsNoXP() {
         Target mockedTarget = Mockito.mock(Target.class);
         Mockito.when(mockedTarget.isDead()).thenReturn(false);
-        Mockito.when(mockedTarget.giveExperience()).thenReturn(100);
+       // Mockito.when(mockedTarget.giveExperience()).thenReturn(100);
         this.hero.attack(mockedTarget);
         assertEquals(0, this.hero.getExperience());
     }

@@ -7,6 +7,8 @@ import org.junit.Test;
 
 public class AxeTest {
 
+
+
     private Dummy dummy;
     private Axe axe;
     private Axe brokenAxe;
@@ -17,7 +19,6 @@ public class AxeTest {
         this.brokenAxe = new Axe(10, 0);
         this.dummy = new Dummy(100, 100);
     }
-
 
     @Test
     public void testWeaponLosesDurabilityAfterAttack() {

@@ -7,7 +7,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String animalType = scanner.nextLine();
 
-        while (!animalType.equals("Beast!")) {
+        Animal dog=new Tomcat("fsdf",12,"wsfds");
+
+        Animal cat1= new Cat("fgf",34,"43534");
+
+         if (cat1 instanceof Animal){
+             System.out.println("yes");
+         }else {
+             System.out.println("no");
+         }
+
+       /* while (!animalType.equals("Beast!")) {
             String[] animalInfo = scanner.nextLine().split("\\s+");
             String name = animalInfo[0];
             int age = Integer.parseInt(animalInfo[1]);
@@ -41,6 +51,6 @@ public class Main {
             }
             animalType = scanner.nextLine();
         }
-
+*/
     }
 }

@@ -4,12 +4,16 @@ package rpg_lab;
 import org.junit.Before;
 import org.junit.Test;
 
+
+
 import static org.junit.Assert.*;
 
 public class DummyTest {
 
     private static final int HEALTH = 100;
     private static final int XP = 100;
+
+
 
     private Dummy dummy;
     private Dummy deadDummy;
@@ -18,6 +22,7 @@ public class DummyTest {
     public void setUp() {
         this.dummy = new Dummy(HEALTH, XP);
         this.deadDummy = new Dummy(0, XP);
+
     }
 
     @Test

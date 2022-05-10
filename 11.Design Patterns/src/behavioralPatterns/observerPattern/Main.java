@@ -6,6 +6,8 @@ public class Main {
         Observer carEnthusiast2 = new CarEnthusiast();
         Observer carEnthusiast3 = new CarEnthusiast();
 
+        
+
         Subject carMagazine = new CarMagazine();
         carMagazine.subscribe(carEnthusiast1);
         carMagazine.subscribe(carEnthusiast2);

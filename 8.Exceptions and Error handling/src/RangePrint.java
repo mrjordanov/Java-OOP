@@ -24,7 +24,7 @@ public class RangePrint {
         try {
             validateRange(start, end);
         } catch (InvalidRangeException e) {
-            throw new IllegalArgumentException(e.getMessage(),e);
+            throw new IllegalArgumentException(e.getMessage());
         }
         IntStream.rangeClosed(start, end).forEach(System.out::println);
     }
